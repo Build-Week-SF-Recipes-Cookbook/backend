@@ -4,7 +4,7 @@ const dbModel=require('./auth_model');
 const bcryptjs=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const secrets=require('../../config/secrets');
-
+ 
 router.post('/register',validateBody,validateRegister, async (req,res,next)=>{
     const credentials=req.body;
     //for valid credential , get rounds from env variable
@@ -24,6 +24,7 @@ router.post('/login',validateBody,async (req,res,next)=>{
     try {
         const {username,password}=req.body;
         const user= await dbModel.findByUserName(username)
+        console.log(user)
         //validate hash password
         if(user && bcryptjs.compareSync(password,user.password)){
             const token=generateToken(user);

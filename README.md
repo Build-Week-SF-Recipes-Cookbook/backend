@@ -3,10 +3,7 @@ https://documenter.getpostman.com/view/13176511/TWDanFVF
 
 Register new User :
 
-POST
-Register New User
-https://kavya-bw-cookbook.herokuapp.com/auth/register
-Register New User
+ 
 
 Bodyraw (json) 
 request
@@ -22,10 +19,12 @@ response
 
 
 Login User
-POST "/auth/login"
+POST "api/auth/login"
     request
-    {"username":"helloworld",
-    "password":"sjdhfaoi8"}
+    {
+    "username":"helloworld",
+    "password":"sjdhfaoi8"
+    }
 
     response
     {
