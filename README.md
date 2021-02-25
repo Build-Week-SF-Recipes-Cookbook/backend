@@ -7,11 +7,12 @@ Register New User
 https://kavya-bw-cookbook.herokuapp.com/auth/register
 Register New User
 
-Bodyraw (json)
+Bodyraw (json) 
+request
 {"username":"helloworld!",
 "password":"password"}
 
-Response:
+Response
 {
     "id": 4,
     "username": "helloworld!",
