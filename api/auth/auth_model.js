@@ -16,3 +16,4 @@ async function findByUserName(username){
     const user= await db("users").where("username",username).first();
     return user 
  }
+

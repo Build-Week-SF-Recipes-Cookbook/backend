@@ -2,10 +2,12 @@
 
 Register new User :
 
-POST "/auth/register"
+POST "api/auth/register"
     request
-    {"username":"helloworld",
-    "password":"sjdhfaoi8"}
+    {
+    "username":"helloworld",
+    "password":"sjdhfaoi8"
+    }
 
     response
     {
@@ -17,10 +19,12 @@ POST "/auth/register"
 Register new User :
 
 Login User
-POST "/auth/login"
+POST "api/auth/login"
     request
-    {"username":"helloworld",
-    "password":"sjdhfaoi8"}
+    {
+    "username":"helloworld",
+    "password":"sjdhfaoi8"
+    }
 
     response
     {
