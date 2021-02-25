@@ -2,19 +2,22 @@
 
 Register new User :
 
-POST "/auth/register"
-    request
-    {"username":"helloworld",
-    "password":"sjdhfaoi8"}
+POST
+Register New User
+https://kavya-bw-cookbook.herokuapp.com/auth/register
+Register New User
 
-    response
-    {
-    "id": 3,
-    "username": "helloworld",
-    "password": "$2a$08$cXYeyrZQ1yNQphIL34aDJet1MLy5fjXZ8YaVH6DN9h0pKkoW2Da.2"
-    }
+Bodyraw (json)
+{"username":"helloworld!",
+"password":"password"}
 
-Register new User :
+Response:
+{
+    "id": 4,
+    "username": "helloworld!",
+    "password": "$2a$08$mBmqBMwJczkF8VvhDJwK5emuCdL.DVjqcDuIBXRv505Oz51TA7YpO"
+}
+
 
 Login User
 POST "/auth/login"
