@@ -1,9 +1,9 @@
 # Welcome to CookBook API
 https://documenter.getpostman.com/view/13176511/TWDanFVF
 
+Register New User
+POST "api/auth/login"
 Register new User :
-
- 
 
 Bodyraw (json) 
 request
