@@ -29,23 +29,15 @@ exports.up = async function(knex) {
     table.integer("step_number").unique().notNullable();
     table.string("instruction").notNullable();
 })
-  //ingredients table
+  //ingredients
   await knex.schema.createTable("ingredients",(table)=>{
-      table.increments()
-      table.string("name",128).unique().notNullable();
-  })
-  //Bridge table recipes_ingredients
-  await knex.schema.createTable("recipes_ingredients",(table)=>{
+      table.increments();
       table.integer("recipe_id").notNull()
            .unsigned()
            .references("recipes.id")
            .onDelete("CASCADE")
            .onUpdate("CASCADE")
-      table.integer("ingredient_id").notNull().unsigned()
-           .references("ingredients.id")
-           .onDelete("CASCADE")
-           .onUpdate("CASCADE")
-      table.primary(["recipe_id","ingredient_id"])
+      table.string("ingredient",128).notNull();
   })
 };
 
@@ -54,5 +46,4 @@ exports.down = async function(knex) {
   await knex.schema.dropTableIfExists("recipes")
   await knex.schema.dropTableIfExists("instructions")
   await knex.schema.dropTableIfExists("ingredients")
-  await knex.schema.dropTableIfExists("recipes_ingredients")
 };
