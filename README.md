@@ -1,22 +1,22 @@
 # Welcome to CookBook API
+https://documenter.getpostman.com/view/13176511/TWDanFVF
 
 Register new User :
 
-POST "api/auth/register"
-    request
-    {
-    "username":"helloworld",
-    "password":"sjdhfaoi8"
-    }
+ 
 
-    response
-    {
-    "id": 3,
-    "username": "helloworld",
-    "password": "$2a$08$cXYeyrZQ1yNQphIL34aDJet1MLy5fjXZ8YaVH6DN9h0pKkoW2Da.2"
-    }
+Bodyraw (json) 
+request
+{"username":"helloworld!",
+"password":"password"}
 
-Register new User :
+response
+{
+    "id": 4,
+    "username": "helloworld!",
+    "password": "$2a$08$mBmqBMwJczkF8VvhDJwK5emuCdL.DVjqcDuIBXRv505Oz51TA7YpO"
+}
+
 
 Login User
 POST "api/auth/login"
