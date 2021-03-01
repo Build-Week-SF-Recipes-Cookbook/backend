@@ -2,7 +2,7 @@
 https://documenter.getpostman.com/view/13176511/TWDanFVF
 
 Register New User
-POST "api/auth/login"
+POST "api/auth/register"
 Register new User :
 
 Bodyraw (json) 
