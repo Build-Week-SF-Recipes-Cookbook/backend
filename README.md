@@ -52,24 +52,25 @@ RESTRICTED ROUTE
 
     response:
     [
-        {
+    {
+        "id": 1,
+        "user_id": 1,
+        "title": "French Bread",
+        "source": "Grand Ma",
+        "category": "Breakfast",
+        "description": "Classic favorite",
+        "photo": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlbmNoJTIwYnJlYWQlMjB0b2FzdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
         "id": 2,
-        "user_id": 3,
-        "title": "Chocolate Cup Cake",
-        "source": "Star Family",
-        "category": "Dessert",
-        "description": "Yum dessert"
-        },
-        {
-        "id": 3,
-        "user_id": 3,
-        "title": "muffin",
-        "source": "spacex",
-        "category": "dessert",
-        "description": "add on"
-         }
+        "user_id": 1,
+        "title": "Chocolate Muffin",
+        "source": "Grand Ma",
+        "category": "Breakfast",
+        "description": "Special Dark Chocolate",
+        "photo": "https://images.unsplash.com/photo-1604882406195-d94d4888567d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hvY29sYXRlJTIwbXVmZmlufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    }
     ]
- 
 ## Add Recipes 
 ### POST "/api/recipes/"
 RESTRICTED ROUTE
