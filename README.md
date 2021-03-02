@@ -214,24 +214,23 @@ Notes: Only Registered User with valid login token can access this route.
 Updates the ingredient , passing the recipe ID and ingredient ID in the request params.
 
  
-:green_apple:  note=> 5 is the recipe ID
-                     21 is the ingredient Id
+:pencil: 
+    5 is the recipe ID
+    21 is the ingredient Id
 
-:green_apple: 
-    request:
+:green_apple: request:
         {
         "ingredient":"chopped almonds"
         }
 
-:green_apple:
-     response:
-    {
-    "id": 5,
-    "recipe_id": 5,
-    "ingredient": "chopped almonds",
-    "user_id": 3,
-    "title": "Strawberry cake",
-    "source": "Mrs.GH",
-    "category": "breakfast",
-    "description": "Continental"
-    }
+:green_apple: response:
+        {
+        "id": 5,
+        "recipe_id": 5,
+        "ingredient": "chopped almonds",
+        "user_id": 3,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast",
+        "description": "Continental"
+        }
