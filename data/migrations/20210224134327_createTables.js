@@ -26,7 +26,7 @@ exports.up = async function(knex) {
          .references("recipes.id")
          .onDelete('CASCADE')
          .onUpdate('CASCADE')
-    table.integer("step_number").unique().notNullable();
+    table.integer("step_number").unsigned().notNullable();
     table.string("instruction").notNullable();
 })
   //ingredients

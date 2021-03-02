@@ -35,7 +35,7 @@ async function addIngredientByRecipeId(ingredient,recipeId){
     const newIngredient={recipe_id:recipeId,
                          ingredient: ingredient}
     const [ingId]= await db("ingredients").insert(newIngredient)
-    console.log('igId',ingId)
+     
     //select recipe name and its ingredients
     const [recipeName] = await db("recipes as r")
                            .where("id",recipeId)
@@ -44,7 +44,7 @@ async function addIngredientByRecipeId(ingredient,recipeId){
     const ingredients= await db("ingredients")  
                         .where("recipe_id",recipeId)
                         .select("ingredient")
-    console.log('ing=',ingredients);
+     
     const result = {recipe:recipeName,
                     ingredients:ingredients}
     return result;

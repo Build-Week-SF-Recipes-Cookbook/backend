@@ -1,9 +1,11 @@
 # Welcome to CookBook API
- https://documenter.getpostman.com/view/13176511/TWDditfA
+:coffee:  https://documenter.getpostman.com/view/13176511/TWDditfA
 
 ## Register New User
 ### POST "api/auth/register"
 :coffee: Register new User :
+
+:green_apple: Sample request and response
 
     request
     {
@@ -24,6 +26,8 @@
 
 :coffee: Login a registered User
 
+:green_apple: Sample request and response
+
     request
     {
     "username":"helloworld",
@@ -41,26 +45,29 @@
 RESTRICTED ROUTE
 
 :coffee: Get Recipes of the user
- Notes: Only Registered User with valid login token can access this route.Displays the recipes of the logged in User
+ 
+:pencil: Notes: Only Registered User with valid login token can access this route.Displays the recipes of the logged in User
+
+:green_apple: Sample request and response
 
     response:
     [
-    {
-    "id": 2,
-    "user_id": 3,
-    "title": "Chocolate Cup Cake",
-    "source": "Star Family",
-    "category": "Dessert",
-    "description": "Yum dessert"
-    },
-    {
-    "id": 3,
-    "user_id": 3,
-    "title": "muffin",
-    "source": "spacex",
-    "category": "dessert",
-    "description": "add on"
-    }
+        {
+        "id": 2,
+        "user_id": 3,
+        "title": "Chocolate Cup Cake",
+        "source": "Star Family",
+        "category": "Dessert",
+        "description": "Yum dessert"
+        },
+        {
+        "id": 3,
+        "user_id": 3,
+        "title": "muffin",
+        "source": "spacex",
+        "category": "dessert",
+        "description": "add on"
+         }
     ]
  
 ## Add Recipes 
@@ -68,7 +75,10 @@ RESTRICTED ROUTE
 RESTRICTED ROUTE
 
 :coffee: Add recipes for the logged User
-Notes: Only Registered User with valid login token can access this route.Adds the recipes for the logged user
+
+:pencil: Only Registered User with valid login token can access this route.Adds the recipes for the logged user
+
+:green_apple: Sample request and response
 
     request:
     {
@@ -94,7 +104,9 @@ Notes: Only Registered User with valid login token can access this route.Adds th
 :coffee: Edit the recipe with the recipe ID (of that user)
 
 RESTRICTED ROUTE
-Notes: Only Registered User with valid login token can access this route.
+:pencil: Only Registered User with valid login token can access this route.
+
+:green_apple: Sample request and response
 
     request
     {
@@ -120,8 +132,10 @@ RESTRICTED ROUTE
 
 :coffee: Edit the recipe with the recipe ID (of that user)
 
-Notes: Only Registered User with valid login token can access this route.
+:pencil: Only Registered User with valid login token can access this route.
 Deletes the recipe with the recipe ID (of that user)
+
+:green_apple: Sample response
 
     response
     {
@@ -135,6 +149,8 @@ Deletes the recipe with the recipe ID (of that user)
 
 :pencil: RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
+
+:green_apple: Sample request and response
 
     response:
     [
@@ -162,9 +178,9 @@ Notes: Only Registered User with valid login token can access this route.
 
 :coffee: Adds the ingredients to the recipe Id.
 
-:pencil:  RESTRICTED ROUTE
+:pencil:  RESTRICTED ROUTE, Only Registered User with valid login token can access this route.
 
-Notes: Only Registered User with valid login token can access this route.
+:green_apple: Sample request and response
 
     request:
     {
@@ -193,10 +209,12 @@ Notes: Only Registered User with valid login token can access this route.
 ### DELETE  "/api/ingredients/5/18"
 :coffee: Adds the ingredients to the recipe Id.
 
-"/api/ingredients/recipeID/<ingredientID"
+"/api/ingredients/recipeID/ingredientID"
 
 RESTRICTED ROUTE
 :pencil:  Only Registered User with valid login token can access this route.
+
+:green_apple: Sample response
 
     response:
     {
@@ -236,3 +254,160 @@ Updates the ingredient , passing the recipe ID and ingredient ID in the request 
         "category": "breakfast",
         "description": "Continental"
         }
+
+## Instruction Get the Instructions for the Recipe Id
+### GET "/api/instructions/5"
+
+:coffee: Gets the instructions for the recipe Id.
+
+:pencil: RESTRICTED ROUTE
+Notes: Only Registered User with valid login token can access this route.
+
+:green_apple: Sample request and response
+
+    request:
+    [
+    {
+        "instruction_id": 1,
+        "step_number": 1,
+        "instruction": "Blend wheat flour with 3 eggs",
+        "recipe_id": 5,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast"
+    },
+    {
+        "instruction_id": 5,
+        "step_number": 2,
+        "instruction": "mix strawberries",
+        "recipe_id": 5,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast"
+    },
+    {
+        "instruction_id": 4,
+        "step_number": 3,
+        "instruction": "Add chopped almonds",
+        "recipe_id": 5,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast"
+    },
+    {
+        "instruction_id": 6,
+        "step_number": 4,
+        "instruction": "add vanila",
+        "recipe_id": 5,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast"
+    },
+    {
+        "instruction_id": 7,
+        "step_number": 5,
+        "instruction": "add grated pistachio",
+        "recipe_id": 5,
+        "title": "Strawberry cake",
+        "source": "Mrs.GH",
+        "category": "breakfast"
+    }
+    ]
+     
+
+## Add Instruction to the Recipe - pass recipeId
+### POST  "/api/instructions/5"
+
+:coffee: Adds the instructions to the recipe Id.
+
+:pencil:  RESTRICTED ROUTE, Only Registered User with valid login token can access this route.
+
+:green_apple: Sample request and response
+
+    request:
+    {
+    "step_number":5,
+    "instruction":"add pistachio"
+    }
+
+    response:
+    {
+    "recipe": {
+        "recipe_name": "Strawberry cake",
+        "recipe_id": 5
+    },
+    "instructions": [
+        {
+            "step_number": 1,
+            "instruction": "Blend wheat flour with 3 eggs"
+        },
+        {
+            "step_number": 2,
+            "instruction": "mix strawberries"
+        },
+        {
+            "step_number": 3,
+            "instruction": "Add chopped almonds"
+        },
+        {
+            "step_number": 4,
+            "instruction": "add vanila"
+        },
+        {
+            "step_number": 5,
+            "instruction": "add pistachio"
+        }
+    ]
+    }
+
+## Deletes Instruction for the Recipe
+### DELETE  "/api/instructions/5/2"
+:coffee: Adds the instructions to the recipe Id.
+
+"/api/instructions/recipeID/instructionID"
+
+RESTRICTED ROUTE
+:pencil:  Only Registered User with valid login token can access this route.
+
+:green_apple: Sample response
+
+    response:
+    {
+    "message": "delete success"
+    }
+
+## Edit Instruction of the Recipe - pass recipeId
+### PUT  "/api/instructions/5/7"
+
+:coffee: Updates the instruction step number and instruction
+ 
+RESTRICTED ROUTE
+
+Notes: Only Registered User with valid login token can access this route.
+Updates the instruciton , passing the recipe ID and instruciton ID in the request params.
+
+ 
+:pencil: 
+    5 is the recipe ID
+    7 is the instruciton Id
+
+:green_apple: Sample request and response
+
+    request:
+        {
+            "step_number": 5,
+            "instruction": "add grated pistachio"
+        }
+ 
+    response:
+         {
+            "id": 5,
+            "recipe_id": 5,
+            "step_number": 5,
+            "instruction": "add grated pistachio",
+            "user_id": 3,
+            "title": "Strawberry cake",
+            "source": "Mrs.GH",
+            "category": "breakfast",
+            "description": "Continental"
+         }
