@@ -1,7 +1,7 @@
 const db=require('../../data/dbConfig');
 
 module.exports={findIngredientsByRecipeId,findByRecipeId,
-    addIngredientsByRecipeId,findByIngredientId,deleteIngredients}
+    addIngredientByRecipeId,findByIngredientId,deleteIngredient,updateIngredient}
 
 async function findByIngredientId(recipeId,ingredientId){
   return await db("ingredients as i")
@@ -28,7 +28,7 @@ async function findIngredientsByRecipeId(recipeId){
     return await db("recipes").where("id",recipeId).where("user_id",userId) 
   }
 
-async function addIngredientsByRecipeId(ingredient,recipeId){
+async function addIngredientByRecipeId(ingredient,recipeId){
     //insert into ingredients table
     console.log('ingredient=',ingredient)
     console.log('recipe=',recipeId)
@@ -52,6 +52,20 @@ async function addIngredientsByRecipeId(ingredient,recipeId){
 }
 
 
-async function deleteIngredients(recipeId,ingredientId){
+async function deleteIngredient(recipeId,ingredientId){
   return await db("ingredients").where("id",ingredientId).del()
+}
+
+
+async function updateIngredient(ingredientId,ingredient,recipeId){
+ //update ingredients table
+ console.log('ingredient=',ingredient)
+ console.log('ingredientId=',ingredientId)
+ console.log('recipe=',recipeId)
+ 
+ const updated = await db("ingredients")
+                    .update("ingredient",ingredient)
+                    .where("id",ingredientId)
+                                        
+ return findByIngredientId(recipeId,ingredientId)
 }
