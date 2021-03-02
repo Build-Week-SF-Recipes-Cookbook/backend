@@ -133,7 +133,7 @@ Deletes the recipe with the recipe ID (of that user)
 
 :coffee: Gets the ingredients for the recipe Id.
 
-RESTRICTED ROUTE
+:pencil: RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
 
     response:
@@ -162,7 +162,7 @@ Notes: Only Registered User with valid login token can access this route.
 
 :coffee: Adds the ingredients to the recipe Id.
 
-RESTRICTED ROUTE
+:pencil:  RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 
@@ -193,10 +193,10 @@ Notes: Only Registered User with valid login token can access this route.
 ### DELETE  "/api/ingredients/5/18"
 :coffee: Adds the ingredients to the recipe Id.
 
-"/api/ingredients/<recipeID>/<ingredientID>"
+"/api/ingredients/recipeID/<ingredientID"
 
 RESTRICTED ROUTE
-Notes: Only Registered User with valid login token can access this route.
+:pencil:  Only Registered User with valid login token can access this route.
 
     response:
     {
@@ -218,12 +218,14 @@ Updates the ingredient , passing the recipe ID and ingredient ID in the request 
     5 is the recipe ID
     21 is the ingredient Id
 
-:green_apple: request:
+:green_apple: Sample request and response
+
+    request:
         {
         "ingredient":"chopped almonds"
         }
-
-:green_apple: response:
+ 
+    response:
         {
         "id": 5,
         "recipe_id": 5,
