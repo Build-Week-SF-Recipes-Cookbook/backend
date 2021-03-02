@@ -18,6 +18,7 @@ exports.up = async function(knex) {
     table.string("source",128).notNullable();
     table.string("category",128).notNullable();
     table.string("description",1200);
+    table.string("photo", 128);
   })
   //instructions table
   await knex.schema.createTable("instructions",(table)=>{
