@@ -40,7 +40,8 @@
 ### GET "/api/recipes/"
 RESTRICTED ROUTE
 
-:coffee: Notes: Only Registered User with valid login token can access this route.Displays the recipes of the logged in User
+:coffee: Get Recipes of the user
+ Notes: Only Registered User with valid login token can access this route.Displays the recipes of the logged in User
 
     response:
     [
@@ -66,10 +67,12 @@ RESTRICTED ROUTE
 ### POST "/api/recipes/"
 RESTRICTED ROUTE
 
-:coffee: Notes: Only Registered User with valid login token can access this route.Adds the recipes for the logged user
+:coffee: Add recipes for the logged User
+Notes: Only Registered User with valid login token can access this route.Adds the recipes for the logged user
 
     request:
-    {"title":"Thai Curry",
+    {
+    "title":"Thai Curry",
     "source":"Mrs.X",
     "category":"dinner",
     "description":"Special south asian curry"
@@ -87,9 +90,11 @@ RESTRICTED ROUTE
 
 ## Edit Recipe of the User
 ### PUT "/api/recipes/8"
+
+:coffee: Edit the recipe with the recipe ID (of that user)
+
 RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
-Edit the recipe with the recipe ID (of that user)
 
     request
     {
@@ -113,6 +118,8 @@ Edit the recipe with the recipe ID (of that user)
 ### DELETE "/api/recipes/8"
 RESTRICTED ROUTE
 
+:coffee: Edit the recipe with the recipe ID (of that user)
+
 Notes: Only Registered User with valid login token can access this route.
 Deletes the recipe with the recipe ID (of that user)
 
@@ -123,9 +130,11 @@ Deletes the recipe with the recipe ID (of that user)
 
 ## Ingredient Get the Ingredients for the Recipe Id
 ### GET "/api/ingredients/3"
+
+:coffee: Gets the ingredients for the recipe Id.
+
 RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
-Gets the ingredients for the recipe Id.
 
     response:
     [
@@ -150,10 +159,12 @@ Gets the ingredients for the recipe Id.
 
 ## Add Ingredient to the Recipe - pass recipeId
 ### POST  "/api/ingredients/5"
+
+:coffee: Adds the ingredients to the recipe Id.
+
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
-Adds the ingredients to the recipe Id.
 
     request:
     {
@@ -180,11 +191,12 @@ Adds the ingredients to the recipe Id.
 
 ## Deletes Ingredient to the Recipe
 ### DELETE  "/api/ingredients/5/18"
-"/api/ingredients/<recipeID>/<ingredientID>"
-RESTRICTED ROUTE
+:coffee: Adds the ingredients to the recipe Id.
 
+"/api/ingredients/<recipeID>/<ingredientID>"
+
+RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
-Adds the ingredients to the recipe Id.
 
     response:
     {
@@ -194,21 +206,25 @@ Adds the ingredients to the recipe Id.
 ## Edit Ingredient of the Recipe - pass recipeId
 ### PUT  "/api/ingredients/5/21"
 
+:coffee: Updates the ingredient
+ 
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 Updates the ingredient , passing the recipe ID and ingredient ID in the request params.
 
-#### /api/ingredients/5/21
-:coffee: note=> 5 is the recipe ID
-                21 us the ingredient Id
+ 
+:green_apple:  note=> 5 is the recipe ID
+                     21 is the ingredient Id
 
-    :green_apple: request:
-    {
-    "ingredient":"chopped almonds"
-    }
+:green_apple: 
+    request:
+        {
+        "ingredient":"chopped almonds"
+        }
 
-    :green_apple: response:
+:green_apple:
+     response:
     {
     "id": 5,
     "recipe_id": 5,
