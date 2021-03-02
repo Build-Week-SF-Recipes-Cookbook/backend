@@ -2,15 +2,14 @@
  https://documenter.getpostman.com/view/13176511/TWDditfA
 
 ## Register New User
-POST "api/auth/register"
-Register new User :
+### POST "api/auth/register"
+:coffee: Register new User :
 
-Bodyraw (json) 
-request
-{
-"username":"helloworld!",
-"password":"password"
-}
+    request
+    {
+    "username":"helloworld!",
+    "password":"password"
+    }
 
     response
     {
@@ -22,6 +21,8 @@ request
 
 ## Login User
 ### POST "api/auth/login"
+
+:coffee: Login a registered User
 
     request
     {
@@ -36,135 +37,138 @@ request
     }
 
 ## Get Recipes of the User
-GET "/api/recipes/"
+### GET "/api/recipes/"
 RESTRICTED ROUTE
 
-Notes: Only Registered User with valid login token can access this route.
-Displays the recipes of the logged in User
+:coffee: Notes: Only Registered User with valid login token can access this route.Displays the recipes of the logged in User
 
-response:
-[
-  {
+    response:
+    [
+    {
     "id": 2,
     "user_id": 3,
     "title": "Chocolate Cup Cake",
     "source": "Star Family",
     "category": "Dessert",
     "description": "Yum dessert"
-  },
-  {
+    },
+    {
     "id": 3,
     "user_id": 3,
     "title": "muffin",
     "source": "spacex",
     "category": "dessert",
     "description": "add on"
-  }
-]
+    }
+    ]
  
 ## Add Recipes 
-POST "/api/recipes/"
+### POST "/api/recipes/"
 RESTRICTED ROUTE
 
-Notes: Only Registered User with valid login token can access this route.
-Adds the recipes for the logged user
+:coffee: Notes: Only Registered User with valid login token can access this route.Adds the recipes for the logged user
 
-request:
- {"title":"Thai Curry",
- "source":"Mrs.X",
- "category":"dinner",
- "description":"Special south asian curry"}
+    request:
+    {"title":"Thai Curry",
+    "source":"Mrs.X",
+    "category":"dinner",
+    "description":"Special south asian curry"
+    }
 
- response:
- {
+    response:
+    {
     "id": 4,
     "user_id": 2,
     "title": "Crab cake",
     "source": "Mrs.GH",
     "category": "dinner",
     "description": "Asian"
-}
+    }
 
 ## Edit Recipe of the User
-PUT "/api/recipes/8"
+### PUT "/api/recipes/8"
 RESTRICTED ROUTE
-
 Notes: Only Registered User with valid login token can access this route.
 Edit the recipe with the recipe ID (of that user)
 
-request
- {"title":"Lmb cury hoT and spicy!!!",
- "source":"Mrs.X",
- "category":"dinner",
- "description":"Special south asian curry"}
+    request
+    {
+    "title":"Lmb cury hoT and spicy!!!",
+    "source":"Mrs.X",
+    "category":"dinner",
+    "description":"Special south asian curry"
+    }
 
- response
- {
+    response
+    {
     "id": 8,
     "user_id": 4,
     "title": "Lmb cury hoT and spicy!!!",
     "source": "Mrs.X",
     "category": "dinner",
     "description": "Special south asian curry"
-}
+    }
 
 ## Delete Recipe of the User
-DELETE "/api/recipes/8"
+### DELETE "/api/recipes/8"
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 Deletes the recipe with the recipe ID (of that user)
 
-{
+    response
+    {
     "message": "delete success"
-}
+    }
 
 ## Ingredient Get the Ingredients for the Recipe Id
-GET "/api/ingredients/3"
+### GET "/api/ingredients/3"
 RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
 Gets the ingredients for the recipe Id.
 
-response:
-[
-    {
+    response:
+    [
+        {
         "ingredient_id": 17,
         "ingredient_name": "strawberry",
         "recipe_title": "Strawberry cake",
         "source": "Mrs.GH",
         "category": "breakfast",
         "recipe_id": 5
-    },
-    {
+        },
+        {
         "ingredient_id": 18,
         "ingredient_name": "almond flour",
         "recipe_title": "Strawberry cake",
         "source": "Mrs.GH",
         "category": "breakfast",
         "recipe_id": 5
-    }
-]
+        }
+    ]
 
 
 ## Add Ingredient to the Recipe - pass recipeId
-POST  "/api/ingredients/5"
+### POST  "/api/ingredients/5"
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 Adds the ingredients to the recipe Id.
 
-request:
-{
+    request:
+    {
     "ingredient":"almond flour"
-}
+    }
 
-response:
-{
-    "recipe": {
+    response:
+    {
+    "recipe":
+    {
         "recipe_name": "Strawberry cake",
         "recipe_id": 5
     },
-    "ingredients": [
+    "ingredients":
+     [
         {
             "ingredient": "strawberry"
         },
@@ -172,40 +176,40 @@ response:
             "ingredient": "almond flour"
         }
     ]
-}
+    }
 
 ## Deletes Ingredient to the Recipe
-DELETE  "/api/ingredients/5/18"
+### DELETE  "/api/ingredients/5/18"
 "/api/ingredients/<recipeID>/<ingredientID>"
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 Adds the ingredients to the recipe Id.
 
-response:
-
-{
+    response:
+    {
     "message": "delete success"
-}
+    }
 
 ## Edit Ingredient of the Recipe - pass recipeId
-PUT  "/api/ingredients/5/21"
+### PUT  "/api/ingredients/5/21"
 
 RESTRICTED ROUTE
 
 Notes: Only Registered User with valid login token can access this route.
 Updates the ingredient , passing the recipe ID and ingredient ID in the request params.
 
-/api/ingredients/5/21
-note=> 5 is the recipe ID
-       21 us the ingredient Id
+#### /api/ingredients/5/21
+:coffee: note=> 5 is the recipe ID
+                21 us the ingredient Id
 
-request:
-{"ingredient":"chopped almonds"}
+    :green_apple: request:
+    {
+    "ingredient":"chopped almonds"
+    }
 
-response:
-
-{
+    :green_apple: response:
+    {
     "id": 5,
     "recipe_id": 5,
     "ingredient": "chopped almonds",
@@ -214,4 +218,4 @@ response:
     "source": "Mrs.GH",
     "category": "breakfast",
     "description": "Continental"
-}
+    }
