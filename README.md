@@ -2,24 +2,27 @@
  https://documenter.getpostman.com/view/13176511/TWDditfA
 
 ## Register New User
-!!!POST "api/auth/register"
+POST "api/auth/register"
 Register new User :
 
 Bodyraw (json) 
 request
-{"username":"helloworld!",
-"password":"password"}
-
-response
 {
+"username":"helloworld!",
+"password":"password"
+}
+
+    response
+    {
     "id": 4,
     "username": "helloworld!",
     "password": "$2a$08$mBmqBMwJczkF8VvhDJwK5emuCdL.DVjqcDuIBXRv505Oz51TA7YpO"
-}
+    }
 
 
 ## Login User
-POST "api/auth/login"
+### POST "api/auth/login"
+
     request
     {
     "username":"helloworld",
@@ -40,26 +43,25 @@ Notes: Only Registered User with valid login token can access this route.
 Displays the recipes of the logged in User
 
 response:
-
 [
-    {
-        "id": 1,
-        "user_id": 1,
-        "title": "French Bread",
-        "source": "Grand Ma",
-        "category": "Breakfast",
-        "description": "Classic favorite"
-    },
-    {
-        "id": 2,
-        "user_id": 1,
-        "title": "Chocolate Muffin",
-        "source": "Grand Ma",
-        "category": "Breakfast",
-        "description": "Special Dark Chocolate"
-    }
+  {
+    "id": 2,
+    "user_id": 3,
+    "title": "Chocolate Cup Cake",
+    "source": "Star Family",
+    "category": "Dessert",
+    "description": "Yum dessert"
+  },
+  {
+    "id": 3,
+    "user_id": 3,
+    "title": "muffin",
+    "source": "spacex",
+    "category": "dessert",
+    "description": "add on"
+  }
 ]
-
+ 
 ## Add Recipes 
 POST "/api/recipes/"
 RESTRICTED ROUTE
@@ -68,10 +70,10 @@ Notes: Only Registered User with valid login token can access this route.
 Adds the recipes for the logged user
 
 request:
- {"title":"Crab cake",
- "source":"Mrs.GH",
+ {"title":"Thai Curry",
+ "source":"Mrs.X",
  "category":"dinner",
- "description":"Asian"}
+ "description":"Special south asian curry"}
 
  response:
  {
@@ -90,13 +92,13 @@ RESTRICTED ROUTE
 Notes: Only Registered User with valid login token can access this route.
 Edit the recipe with the recipe ID (of that user)
 
-request:
+request
  {"title":"Lmb cury hoT and spicy!!!",
  "source":"Mrs.X",
  "category":"dinner",
  "description":"Special south asian curry"}
 
- response"
+ response
  {
     "id": 8,
     "user_id": 4,
@@ -197,7 +199,7 @@ Updates the ingredient , passing the recipe ID and ingredient ID in the request 
 /api/ingredients/5/21
 note=> 5 is the recipe ID
        21 us the ingredient Id
-       
+
 request:
 {"ingredient":"chopped almonds"}
 
