@@ -14,7 +14,11 @@ router.post('/register',validateBody,validateRegister, async (req,res,next)=>{
     credentials.password=hash;
     try {
         const user= await dbModel.addUser(credentials);
-        res.status(201).json(user)
+        if(user){
+            res.status(201).json(user)
+        }else{
+            res.status(400).json({message: "unable to register"})
+        }
     } catch (err) {
         next(err)
     }
