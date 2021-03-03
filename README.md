@@ -15,9 +15,12 @@
 
     response
     {
-    "id": 4,
-    "username": "helloworld!",
-    "password": "$2a$08$mBmqBMwJczkF8VvhDJwK5emuCdL.DVjqcDuIBXRv505Oz51TA7YpO"
+    "message": "register success",
+    "newUser": {
+        "id": 11,
+        "username": "helloworld!",
+        "password": "$2a$08$ddyOrMqH8a9OxF8wRKnIOucQ1G.63hd1BEk.Mlk6XCKF3bc.X24dO"
+    }
     }
 
 

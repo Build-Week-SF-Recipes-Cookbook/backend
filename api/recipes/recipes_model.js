@@ -12,8 +12,6 @@ async function findByRecipeId(recipeId){
 
 async function findByUserId(userId){
     const adminId=1; //set as config env var to return default recipe
-    console.log('userId=',userId)
-    console.log('adminId=',adminId)
     return await db("recipes").where("user_id",userId)
                             //   .orWhere ("user_id", adminId) 
 }
