@@ -1,6 +1,7 @@
 const express=require('express');
 const helmet= require('helmet');
 const cors=require('cors');
+const morgan = require("morgan");
  
 //routers
 const authRouter=require('./auth/auth_router');
@@ -14,6 +15,7 @@ const restrict= require('./auth/restricted_middleware');
 const server=express();
 server.use(express.json());
 server.use(helmet());
+server.use(morgan("dev"));
 server.use(cors());
 
 server.use('/api/auth',authRouter);
