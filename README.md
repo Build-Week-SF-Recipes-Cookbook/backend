@@ -50,6 +50,9 @@ RESTRICTED ROUTE
 
 :green_apple: Sample request and response
 
+    request:
+        headers:{authorization: "Bearer <TOKEN>"}
+
     response:
     [
     {
@@ -81,26 +84,29 @@ RESTRICTED ROUTE
 
 :green_apple: Sample request and response
 
+    headers:{authorization: "Bearer <TOKEN>"}
+
     request:
-    {
-    "title":"Thai Curry",
-    "source":"Mrs.X",
-    "category":"dinner",
-    "description":"Special south asian curry"
-    }
+     {
+        "title":"Chicken Kabab",
+        "source":"Mrs.Ky",
+        "category":"Dinner",
+        "description":"Indian Classic",
+        "photo":"https://images.pexels.com/photos/2689419/pexels-photo-2689419.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"}
 
     response:
     {
-    "id": 4,
-    "user_id": 2,
-    "title": "Crab cake",
-    "source": "Mrs.GH",
-    "category": "dinner",
-    "description": "Asian"
+        "id": 5,
+        "user_id": 3,
+        "title": "Chicken Kabab",
+        "source": "Mrs.Ky",
+        "category": "Dinner",
+        "description": "Indian Classic",
+        "photo": "https://images.pexels.com/photos/2689419/pexels-photo-2689419.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     }
 
 ## Edit Recipe of the User
-### PUT "/api/recipes/8"
+### PUT "/api/recipes/5"
 
 :coffee: Edit the recipe with the recipe ID (of that user)
 
@@ -108,23 +114,27 @@ RESTRICTED ROUTE
 :pencil: Only Registered User with valid login token can access this route.
 
 :green_apple: Sample request and response
-
-    request
-    {
-    "title":"Lmb cury hoT and spicy!!!",
-    "source":"Mrs.X",
-    "category":"dinner",
-    "description":"Special south asian curry"
+    
+    headers: {authorization: "Bearer <TOKEN>"}
+    
+    request body
+     {
+        "title":"Chicken Kabab",
+        "source":"Mrs.Ky",
+        "category":"Dinner",
+        "description":"Indian Classic!!",
+        "photo":"https://images.pexels.com/photos/2689419/pexels-photo-2689419.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     }
 
     response
     {
-    "id": 8,
-    "user_id": 4,
-    "title": "Lmb cury hoT and spicy!!!",
-    "source": "Mrs.X",
-    "category": "dinner",
-    "description": "Special south asian curry"
+    "id": 5,
+    "user_id": 3,
+    "title": "Chicken Kabab",
+    "source": "Mrs.Ky",
+    "category": "Dinner",
+    "description": "Indian Classic!!",
+    "photo": "https://images.pexels.com/photos/2689419/pexels-photo-2689419.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     }
 
 ## Delete Recipe of the User
