@@ -14,9 +14,9 @@ exports.up = async function(knex) {
          .onDelete('CASCADE')
          .onUpdate('CASCADE');
 
-    table.string("title",128).unique().notNullable();
-    table.string("source",128).notNullable();
-    table.string("category",128).notNullable();
+    table.string("title",1200).unique().notNullable();
+    table.string("source",1200).notNullable();
+    table.string("category",1200).notNullable();
     table.string("description",1200);
     table.string("photo");
   })
