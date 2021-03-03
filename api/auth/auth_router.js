@@ -15,7 +15,7 @@ router.post('/register',validateBody,validateRegister, async (req,res,next)=>{
     try {
         const user= await dbModel.addUser(credentials);
         if(user){
-            res.status(201).json({registered: user})
+            res.status(201).json(user)
         }else{
             res.status(400).json({message: "unable to register"})
         }
