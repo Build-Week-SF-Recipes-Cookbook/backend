@@ -26,7 +26,7 @@ async function findByTitle(title){
 async function createRecipe(recipe,userId){
     const addRecipe={...recipe,
                     user_id:userId}
-    const recipeId= await db("recipes").insert(addRecipe);
+    const [recipeId]= await db("recipes").insert(addRecipe);
     const newRecipe= await findByRecipeId(recipeId);
     console.log('recipe created:',newRecipe)
     return newRecipe;
