@@ -12,8 +12,7 @@ exports.up = async function(knex) {
     table.integer("user_id").notNullable().unsigned()
          .references("users.id")
          .onDelete('CASCADE')
-         .onUpdate('CASCADE');
-
+         .onUpdate('CASCADE')
     table.string("title",1200).unique().notNullable();
     table.string("source",1200).notNullable();
     table.string("category",1200).notNullable();
