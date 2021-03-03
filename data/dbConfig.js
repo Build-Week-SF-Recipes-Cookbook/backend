@@ -1,4 +1,4 @@
-const environment = process.env.NODE_ENV || "development";
+const environment = process.env.NODE_ENV || 'development';
 //creating instance of knex - to configure db from the knexfile setup
 const knex=require('knex');
 
