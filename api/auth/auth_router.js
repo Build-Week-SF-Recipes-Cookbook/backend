@@ -13,8 +13,8 @@ router.post('/register',validateBody,validateRegister, async (req,res,next)=>{
     const hash= bcryptjs.hashSync(credentials.password,rounds);
     credentials.password=hash;
     try {
-        const user= await dbModel.addUser(credentials);
-        res.status(201).json({message: "register success"})
+        const newUser= await dbModel.addUser(credentials);
+        res.status(201).json({message: "register success",newUser})
     } catch (err) {
         next(err)
     }
