@@ -19,7 +19,7 @@ router.get('/', async (req,res,next)=>{
 //find recipe by recipe id
 router.get('/:id', async (req,res,next)=>{
     try {
-       const recipes= await dbModel.findByRecipeId(req.params.id);
+       const [recipes] = await dbModel.findByRecipeId(req.params.id);
        res.status(200).json(recipes)        
     } catch (err) {
         next();
