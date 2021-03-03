@@ -8,17 +8,13 @@ const secrets=require('../../config/secrets');
 router.post('/register',validateBody,validateRegister, async (req,res,next)=>{
     const credentials=req.body;
     //for valid credential , get rounds from env variable
-    const rounds=process.env.BCRYPT_ROUNDS || 8;
+    // const rounds=process.env.BCRYPT_ROUNDS || 8;
     //hash password and set
-    const hash= bcryptjs.hashSync(credentials.password,rounds);
+    const hash= bcryptjs.hashSync(credentials.password,8);
     credentials.password=hash;
     try {
         const user= await dbModel.addUser(credentials);
-        if(user){
-            res.status(201).json(user)
-        }else{
-            res.status(400).json({message: "unable to register"})
-        }
+        res.status(201).json(user)
     } catch (err) {
         next(err)
     }
