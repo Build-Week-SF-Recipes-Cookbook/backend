@@ -15,7 +15,7 @@ async function findByUserId(userId){
     console.log('userId=',userId)
     console.log('adminId=',adminId)
     return await db("recipes").where("user_id",userId)
-                              .orWhere ("user_id", adminId) 
+                            //   .orWhere ("user_id", adminId) 
 }
 
 async function findByTitle(title){
