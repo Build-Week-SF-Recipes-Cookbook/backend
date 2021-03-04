@@ -425,3 +425,34 @@ Updates the instruciton , passing the recipe ID and instruciton ID in the reques
             "category": "breakfast",
             "description": "Continental"
          }
+
+## Get  Recipe by search query
+### GET  "/api/recipes/search?title=Chocolate Muffin"
+
+:coffee: Gets recipe by search query on title
+ 
+RESTRICTED ROUTE
+
+Notes: Only Registered User with valid login token can access this route.
+Pass the title serach parameter to get the recipe with that title.
+ 
+:pencil: 
+    search query parameter is Chocolate Muffin
+
+:green_apple: Sample request and response
+
+    request:
+         Authorization header with Bearer Token 
+ 
+    response:
+         [
+        {
+            "id": 2,
+            "user_id": 1,
+            "title": "Chocolate Muffin",
+            "source": "Grand Ma",
+            "category": "Breakfast",
+            "description": "Special Dark Chocolate",
+            "photo": "https://picsum.photos/200/300"
+        }
+    ]
