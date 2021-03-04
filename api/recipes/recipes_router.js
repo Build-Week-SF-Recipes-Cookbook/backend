@@ -3,6 +3,21 @@ const dbModel=require('./recipes_model');
 const {validateRecipeBody,validateRecipeId,
 validateUpdate} = require('./recipes_middleware');
 
+//find recipe by title
+router.get('/search', async (req,res,next)=>{
+    // query string parameters get added to req.query
+       const searchTitle = req.query.title || '';
+       const userId=req.userId; //value grabbed from decodedToken
+       console.log('userId',userId);
+       console.log('searchTitle',searchTitle)
+       try {
+          const recipe = await dbModel.findByTitle(userId,searchTitle);
+          res.status(200).json(recipe)        
+       } catch (err) {
+           next();
+       }
+   })
+   
 //find recipe by user id
 router.get('/', async (req,res,next)=>{
     const userId=req.userId; //value grabbed from decodedToken
@@ -26,6 +41,22 @@ router.get('/:id', async (req,res,next)=>{
     }
 })
 
+//find recipe by title
+router.get('/search', async (req,res,next)=>{
+ // query string parameters get added to req.query
+    const searchTitle = req.query.title || '';
+    console.log('req=',req)
+    const userId=req.userId; //value grabbed from decodedToken
+    console.log('userId',userId);
+    console.log('searchTitle',searchTitle)
+    try {
+       const recipe = await dbModel.findByTitle(userId,searchTitle);
+       console.log('get recipes',recipe)
+       res.status(200).json(recipe)        
+    } catch (err) {
+        next();
+    }
+})
 
 //add recipe
 router.post('/', validateRecipeBody, async (req,res,next)=>{

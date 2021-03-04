@@ -15,7 +15,7 @@ const restrict= require('./auth/restricted_middleware');
 const server=express();
 server.use(express.json());
 server.use(helmet());
-server.use(morgan("dev"));
+// server.use(morgan("dev"));
 server.use(cors());
 
 server.use('/api/auth',authRouter);

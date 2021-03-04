@@ -16,8 +16,12 @@ async function findByUserId(userId){
                             //   .orWhere ("user_id", adminId) 
 }
 
-async function findByTitle(title){
-    const [recipeWithTitle]= await db("recipes").where("title",title)
+async function findByTitle(userId,title){
+    console.log('title in mode',title)
+    const recipeWithTitle= await db("recipes as r")
+                                .where("r.title", title)
+                                .andWhere("user_id",userId)
+    console.log('recipeWithTitle',recipeWithTitle)
     return recipeWithTitle;
 }
 
